@@ -71,7 +71,7 @@ Install the [mushroom card](https://github.com/piitaya/lovelace-mushroom) into H
 
 ## Install card-mod
 
-Each 
+Install [card mod](https://github.com/thomasloven/lovelace-card-mod) into Home Assistant if you don't already have it.  
 
 ---
 
@@ -190,8 +190,9 @@ cards:
 
 ## Credits
 
-Buy cups of coffee for:
+Buy coffees for:
 - I based the card on [vd Brink's Kleenex pollen radar card](https://vdbrink.github.io/homeassistant/homeassistant_hacs_kleenex)
 - [siftrss](https://siftrss.com)
 - [feedparser](https://github.com/custom-components/feedparser)
 - [Mushroom card](https://github.com/piitaya/lovelace-mushroom)
+- [Card mod](https://github.com/thomasloven/lovelace-card-mod)
