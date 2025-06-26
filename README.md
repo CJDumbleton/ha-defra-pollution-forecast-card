@@ -77,20 +77,10 @@ Install [card mod](https://github.com/thomasloven/lovelace-card-mod) into Home A
 
 ## Card
 
-This presentation uses English levels and has bigger icons.\
-No need to create extra helper sensors.
-
-<a href="images_kleenex/kleenex_mushroom_presentation.png">
-<img src="images_kleenex/kleenex_mushroom_presentation.png" alt="kleenex presentation with mushroom card" width="400px">
-</a>
-
-This presentation required the HACS integration [lovelace-mushroom](https://github.com/piitaya/lovelace-mushroom) to create this custom presentation.\
-Install the integration via this button:
-
-[![Open your Home Assistant instance and show the add-on store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=piitaya&repository=lovelace-mushroom&category=integration)
+<img width="516" alt="defra-card" src="https://github.com/user-attachments/assets/0a779056-d905-4964-8042-cbca3c51d9a9" />
 
 <details>
-  <summary><b>> Click here to see the corresponding dashboard YAML code >></b></summary>
+  <summary><b>> Click here to see the dashboard YAML code >></b></summary>
 
 ```yaml
 {% raw %}
