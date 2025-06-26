@@ -2,7 +2,7 @@
 
 <img width="516" alt="defra-card" src="https://github.com/user-attachments/assets/0a779056-d905-4964-8042-cbca3c51d9a9" />
 
-I've created a Home Assistant (lovelace) dashboard card which you can add to your own dashboard.
+I've created the above Home Assistant (lovelace) dashboard card which you can add to your own dashboard.
 
 It uses data from DEFRA's UK air pollution RSS feed which is available for over 4000 locations across the UK.
 
@@ -22,13 +22,19 @@ It uses data from DEFRA's UK air pollution RSS feed which is available for over 
 
 ## Find your local measuring station
 
-Here 
+- Enter your post-code on [DEFRA's UK Air Pollution forecast website]([url](https://uk-air.defra.gov.uk/forecasting/)).
+- Take note of the name of the nearest station given in the table that appears. (For this example, we're going to use 'Southwark')
 
 ---
 
 ## Filter the RSS feed
 
-Each 
+[DEFRA's RSS feed]([url](https://uk-air.defra.gov.uk/assets/rss/forecast.xml)) contains over 4000 entries. You only need one.
+- Go to https://siftrss.com
+- Enter the DEFRA RSS feed url: https://uk-air.defra.gov.uk/assets/rss/forecast.xml and your station name in capital letters.
+<img width="961" alt="siftrss" src="https://github.com/user-attachments/assets/4f1a5315-59c5-4a2d-ba63-6c5a944c350a" />
+- Click Feed me!
+- Take note of the filtered RSS feed. (You can also click on it to test it is working correctly.)
 
 ---
 
@@ -165,5 +171,7 @@ cards:
 
 ## Credits
 
-I based the card on [vd Brink's Kleenex pollen radar card]([url](https://vdbrink.github.io/homeassistant/homeassistant_hacs_kleenex))
+Buy cups of coffee for:
+- I based the card on [vd Brink's Kleenex pollen radar card]([url](https://vdbrink.github.io/homeassistant/homeassistant_hacs_kleenex))
+- [siftrss]([url](https://siftrss.com))
 If you have any questions, please raise an issue.
