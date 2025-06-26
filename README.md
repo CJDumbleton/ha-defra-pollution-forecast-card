@@ -93,34 +93,83 @@ Add a new manual card to your dashboard, delete the default text and paste in th
 
 ```yaml
 {% raw %}
-# Sourcecode by vdbrink.github.io
+# Sourcecode by CJDumbleton
+square: true
 type: grid
 cards:
   - type: custom:mushroom-template-card
-    primary: |-
-      Weeds:
-      {% set level = states('sensor.kleenex_pollen_radar_huis_weeds')|int(0) %}
-      {% if level == 0 %} None
-      {% elif level <= 20 %} Low
-      {% elif level <= 77 %} Moderate 
-      {% elif level <= 266 %} High
-      {% else %} very High
-      {% endif %}
-    secondary: "{{ states('sensor.kleenex_pollen_radar_huis_weeds') }} ppm"
-    icon: mdi:flower-pollen
-    icon_color: |-
-      {% set level =
-      states('sensor.kleenex_pollen_radar_huis_weeds')|int(0) %} {% if level ==
-      0 %} green {% elif level <= 95 %} yellow {% elif level <= 207 %} orange  {%
-      elif level <= 703 %} red {% else %} maroon {% endif %}
+    primary: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {{ summary | regex_findall_index(find='\w\w\w', index=-5,
+      ignorecase=False) }}
+    icon: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-5,
+      ignorecase=False) | int %}
+
+      {% set icon = {
+        1: 'mdi:numeric-1',
+        2: 'mdi:numeric-2',
+        3: 'mdi:numeric-3',
+        4: 'mdi:numeric-4',
+        5: 'mdi:numeric-5',
+        6: 'mdi:numeric-6',
+        7: 'mdi:numeric-7',
+        8: 'mdi:numeric-8',
+        9: 'mdi:numeric-9',
+        10: 'mdi:numeric-10'} %}
+      {{ icon.get(index, 'mdi:cloud-question' ) }}
+    icon_color: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-5,
+      ignorecase=False) | int %}
+
+      {% set color = {
+        1: 'teal',
+        2: 'green',
+        3: 'lime',
+        4: 'yellow',
+        5: 'amber',
+        6: 'orange',
+        7: 'red',
+        8: 'pink',
+        9: 'brown',
+        10: 'purple'} %}
+      {{ color.get(index, 'grey' ) }}
     layout: vertical
-    entity: sensor.kleenex_pollen_radar_huis_weeds
+    entity: sensor.defra_air_quality_forecast
     multiline_secondary: false
     tap_action:
-      action: more-info
+      action: url
+      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
     layout_options:
       grid_columns: 1
       grid_rows: 2
+    secondary: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-5,
+      ignorecase=False) | int %}
+
+      {% set level = {
+        1: 'Low',
+        2: 'Low',
+        3: 'Low',
+        4: 'Moderate',
+        5: 'Moderate',
+        6: 'Moderate',
+        7: 'High',
+        8: 'High',
+        9: 'High',
+        10: 'Very high'} %}
+      {{ level.get(index, 'Unknown' ) }}
     card_mod:
       style: |
         ha-card {
@@ -129,25 +178,77 @@ cards:
         }
   - type: custom:mushroom-template-card
     primary: >-
-      Grass: {% set level =
-      states('sensor.kleenex_pollen_radar_huis_grass')|int(0) %} {% if level ==
-      0 %} None {% elif level <= 29 %} Low {% elif level <= 60 %} Moderate  {%
-      elif level <= 341 %} High {% else %} very High {% endif %}
-    secondary: "{{ states('sensor.kleenex_pollen_radar_huis_grass') }} ppm"
-    icon: mdi:grass
-    icon_color: |-
-      {% set level =
-      states('sensor.kleenex_pollen_radar_huis_grass')|int(0) %} {% if level ==
-      0 %} green {% elif level <= 95 %} yellow {% elif level <= 207 %} orange  {%
-      elif level <= 703 %} red {% else %} maroon {% endif %}
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {{ summary | regex_findall_index(find='\w\w\w', index=-4,
+      ignorecase=False) }}
+    icon: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-4,
+      ignorecase=False) | int %}
+
+      {% set icon = {
+        1: 'mdi:numeric-1',
+        2: 'mdi:numeric-2',
+        3: 'mdi:numeric-3',
+        4: 'mdi:numeric-4',
+        5: 'mdi:numeric-5',
+        6: 'mdi:numeric-6',
+        7: 'mdi:numeric-7',
+        8: 'mdi:numeric-8',
+        9: 'mdi:numeric-9',
+        10: 'mdi:numeric-10'} %}
+      {{ icon.get(index, 'mdi:cloud-question' ) }}
+    icon_color: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-4,
+      ignorecase=False) | int %}
+
+      {% set color = {
+        1: 'teal',
+        2: 'green',
+        3: 'lime',
+        4: 'yellow',
+        5: 'amber',
+        6: 'orange',
+        7: 'red',
+        8: 'pink',
+        9: 'brown',
+        10: 'purple'} %}
+      {{ color.get(index, 'grey' ) }}
     layout: vertical
-    entity: sensor.kleenex_pollen_radar_huis_grass
+    entity: sensor.defra_air_quality_forecast
     multiline_secondary: false
     tap_action:
-      action: more-info
+      action: url
+      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
     layout_options:
       grid_columns: 1
       grid_rows: 2
+    secondary: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-4,
+      ignorecase=False) | int %}
+
+      {% set level = {
+        1: 'Low',
+        2: 'Low',
+        3: 'Low',
+        4: 'Moderate',
+        5: 'Moderate',
+        6: 'Moderate',
+        7: 'High',
+        8: 'High',
+        9: 'High',
+        10: 'Very high'} %}
+      {{ level.get(index, 'Unknown' ) }}
     card_mod:
       style: |
         ha-card {
@@ -156,31 +257,243 @@ cards:
         }
   - type: custom:mushroom-template-card
     primary: >-
-      Trees: {% set level =
-      states('sensor.kleenex_pollen_radar_huis_trees')|int(0) %} {% if level ==
-      0 %} None {% elif level <= 95 %} Low {% elif level <= 207 %} Moderate  {%
-      elif level <= 703 %} High {% else %} very High {% endif %}
-    secondary: "{{ states('sensor.kleenex_pollen_radar_huis_trees') }} ppm"
-    icon: mdi:tree
-    icon_color: |-
-      {% set level =
-       states('sensor.kleenex_pollen_radar_huis_trees')|int(0) %} {% if level ==
-       0 %} green {% elif level <= 95 %} yellow {% elif level <= 207 %} orange  {%
-       elif level <= 703 %} red {% else %} maroon {% endif %}
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {{ summary | regex_findall_index(find='\w\w\w', index=-3,
+      ignorecase=False) }}
+    icon: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-3,
+      ignorecase=False) | int %}
+
+      {% set icon = {
+        1: 'mdi:numeric-1',
+        2: 'mdi:numeric-2',
+        3: 'mdi:numeric-3',
+        4: 'mdi:numeric-4',
+        5: 'mdi:numeric-5',
+        6: 'mdi:numeric-6',
+        7: 'mdi:numeric-7',
+        8: 'mdi:numeric-8',
+        9: 'mdi:numeric-9',
+        10: 'mdi:numeric-10'} %}
+      {{ icon.get(index, 'mdi:cloud-question' ) }}
+    icon_color: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-3,
+      ignorecase=False) | int %}
+
+      {% set color = {
+        1: 'teal',
+        2: 'green',
+        3: 'lime',
+        4: 'yellow',
+        5: 'amber',
+        6: 'orange',
+        7: 'red',
+        8: 'pink',
+        9: 'brown',
+        10: 'purple'} %}
+      {{ color.get(index, 'grey' ) }}
     layout: vertical
-    entity: sensor.kleenex_pollen_radar_huis_trees
+    entity: sensor.defra_air_quality_forecast
     multiline_secondary: false
     tap_action:
-      action: more-info
+      action: url
+      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
     layout_options:
       grid_columns: 1
       grid_rows: 2
+    secondary: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-3,
+      ignorecase=False) | int %}
+
+      {% set level = {
+        1: 'Low',
+        2: 'Low',
+        3: 'Low',
+        4: 'Moderate',
+        5: 'Moderate',
+        6: 'Moderate',
+        7: 'High',
+        8: 'High',
+        9: 'High',
+        10: 'Very high'} %}
+      {{ level.get(index, 'Unknown' ) }}
     card_mod:
       style: |
         ha-card {
           --icon-size: 60px;
           background-color: hsla(0, 0%, 0%, 0);
         }
+  - type: custom:mushroom-template-card
+    primary: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {{ summary | regex_findall_index(find='\w\w\w', index=-2,
+      ignorecase=False) }}
+    icon: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-2,
+      ignorecase=False) | int %}
+
+      {% set icon = {
+        1: 'mdi:numeric-1',
+        2: 'mdi:numeric-2',
+        3: 'mdi:numeric-3',
+        4: 'mdi:numeric-4',
+        5: 'mdi:numeric-5',
+        6: 'mdi:numeric-6',
+        7: 'mdi:numeric-7',
+        8: 'mdi:numeric-8',
+        9: 'mdi:numeric-9',
+        10: 'mdi:numeric-10'} %}
+      {{ icon.get(index, 'mdi:cloud-question' ) }}
+    icon_color: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-2,
+      ignorecase=False) | int %}
+
+      {% set color = {
+        1: 'teal',
+        2: 'green',
+        3: 'lime',
+        4: 'yellow',
+        5: 'amber',
+        6: 'orange',
+        7: 'red',
+        8: 'pink',
+        9: 'brown',
+        10: 'purple'} %}
+      {{ color.get(index, 'grey' ) }}
+    layout: vertical
+    entity: sensor.defra_air_quality_forecast
+    multiline_secondary: false
+    tap_action:
+      action: url
+      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
+    layout_options:
+      grid_columns: 1
+      grid_rows: 2
+    secondary: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-2,
+      ignorecase=False) | int %}
+
+      {% set level = {
+        1: 'Low',
+        2: 'Low',
+        3: 'Low',
+        4: 'Moderate',
+        5: 'Moderate',
+        6: 'Moderate',
+        7: 'High',
+        8: 'High',
+        9: 'High',
+        10: 'Very high'} %}
+      {{ level.get(index, 'Unknown' ) }}
+    card_mod:
+      style: |
+        ha-card {
+          --icon-size: 60px;
+          background-color: hsla(0, 0%, 0%, 0);
+        }
+  - type: custom:mushroom-template-card
+    primary: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {{ summary | regex_findall_index(find='\w\w\w', index=-1,
+      ignorecase=False) }}
+    icon: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-1,
+      ignorecase=False) | int %}
+
+      {% set icon = {
+        1: 'mdi:numeric-1',
+        2: 'mdi:numeric-2',
+        3: 'mdi:numeric-3',
+        4: 'mdi:numeric-4',
+        5: 'mdi:numeric-5',
+        6: 'mdi:numeric-6',
+        7: 'mdi:numeric-7',
+        8: 'mdi:numeric-8',
+        9: 'mdi:numeric-9',
+        10: 'mdi:numeric-10'} %}
+      {{ icon.get(index, 'mdi:cloud-question' ) }}
+    icon_color: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-1,
+      ignorecase=False) | int %}
+
+      {% set color = {
+        1: 'teal',
+        2: 'green',
+        3: 'lime',
+        4: 'yellow',
+        5: 'amber',
+        6: 'orange',
+        7: 'red',
+        8: 'pink',
+        9: 'brown',
+        10: 'purple'} %}
+      {{ color.get(index, 'grey' ) }}
+    layout: vertical
+    entity: sensor.defra_air_quality_forecast
+    multiline_secondary: false
+    tap_action:
+      action: url
+      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
+    layout_options:
+      grid_columns: 1
+      grid_rows: 2
+    secondary: >-
+      {% set summary =
+      state_attr('sensor.defra_air_quality_forecast','entries')[0].summary %}
+
+      {% set index = summary | regex_findall_index(find='\d+', index=-1,
+      ignorecase=False) | int %}
+
+      {% set level = {
+        1: 'Low',
+        2: 'Low',
+        3: 'Low',
+        4: 'Moderate',
+        5: 'Moderate',
+        6: 'Moderate',
+        7: 'High',
+        8: 'High',
+        9: 'High',
+        10: 'Very high'} %}
+      {{ level.get(index, 'Unknown' ) }}
+    card_mod:
+      style: |
+        ha-card {
+          --icon-size: 60px;
+          background-color: hsla(0, 0%, 0%, 0);
+        }
+title: DEFRA air pollution 5-day forecast
+columns: 5
 {% endraw %}
 ```
 </details>
