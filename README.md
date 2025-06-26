@@ -145,9 +145,6 @@ cards:
     layout: vertical
     entity: sensor.defra_air_quality_forecast
     multiline_secondary: false
-    tap_action:
-      action: url
-      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
     layout_options:
       grid_columns: 1
       grid_rows: 2
@@ -224,9 +221,6 @@ cards:
     layout: vertical
     entity: sensor.defra_air_quality_forecast
     multiline_secondary: false
-    tap_action:
-      action: url
-      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
     layout_options:
       grid_columns: 1
       grid_rows: 2
@@ -303,9 +297,6 @@ cards:
     layout: vertical
     entity: sensor.defra_air_quality_forecast
     multiline_secondary: false
-    tap_action:
-      action: url
-      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
     layout_options:
       grid_columns: 1
       grid_rows: 2
@@ -382,9 +373,6 @@ cards:
     layout: vertical
     entity: sensor.defra_air_quality_forecast
     multiline_secondary: false
-    tap_action:
-      action: url
-      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
     layout_options:
       grid_columns: 1
       grid_rows: 2
@@ -461,9 +449,6 @@ cards:
     layout: vertical
     entity: sensor.defra_air_quality_forecast
     multiline_secondary: false
-    tap_action:
-      action: url
-      url_path: https://uk-air.defra.gov.uk/forecasting/?postcode=York%20racecourse
     layout_options:
       grid_columns: 1
       grid_rows: 2
