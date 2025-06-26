@@ -62,6 +62,7 @@ sensor:
     scan_interval:
       hours: 8
 ```
+Go to 'Developer tools' and click check configuration.
 
 ---
 
