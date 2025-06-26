@@ -92,7 +92,6 @@ Add a new manual card to your dashboard, delete the default text and paste in th
   <summary><b>> Click here to see the dashboard YAML code >></b></summary>
 
 ```yaml
-{% raw %}
 # Sourcecode by CJDumbleton
 square: true
 type: grid
@@ -494,7 +493,6 @@ cards:
         }
 title: DEFRA air pollution 5-day forecast
 columns: 5
-{% endraw %}
 ```
 </details>
 
