@@ -24,8 +24,8 @@ It uses data from DEFRA's UK air pollution RSS feed which is available for over 
 
 ## Find your local measuring station
 
-- Enter your post-code on [DEFRA's UK Air Pollution forecast website](https://uk-air.defra.gov.uk/forecasting/).
-- Take note of the name of the nearest station given in the table that appears. (For this example, we're going to use 'Southwark')
+- Enter your postcode on [DEFRA's UK Air Pollution forecast website](https://uk-air.defra.gov.uk/forecasting/).
+- Take note of the name of the nearest station given in the table that appears. (For this example, we're going to use 'Southwark'.)
 
 ---
 
@@ -88,7 +88,7 @@ Restart home assistant.
 
 <img width="516" alt="defra-card" src="https://github.com/user-attachments/assets/0a779056-d905-4964-8042-cbca3c51d9a9" />
 
-Add a new manual card to your dashboard, delete the default text and paste in the following YAML code.
+Add a new manual card to your dashboard. Delete the default text and paste in the following YAML code.
 
 <details>
   <summary><b>> Click here to see the dashboard YAML code >></b></summary>
