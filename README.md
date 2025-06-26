@@ -15,6 +15,7 @@ It uses data from DEFRA's UK air pollution RSS feed which is available for over 
   * [Create a sensor](#create-a-sensor)
   * [Install the mushroom card](#install-the-mushroom-card)
   * [Install card-mod](#install-card-mod)
+  * [Restart home assistant](#restart-home-assistant)
   * [Card](#card)
   * [Credits](#credits)
 <!-- TOC -->
@@ -75,9 +76,17 @@ Install [card mod](https://github.com/thomasloven/lovelace-card-mod) into Home A
 
 ---
 
+## Restart home assistant
+
+Restart home assistant.
+
+---
+
 ## Card
 
 <img width="516" alt="defra-card" src="https://github.com/user-attachments/assets/0a779056-d905-4964-8042-cbca3c51d9a9" />
+
+Add a new manual card to your dashboard, delete the default text and paste in the following YAML code.
 
 <details>
   <summary><b>> Click here to see the dashboard YAML code >></b></summary>
