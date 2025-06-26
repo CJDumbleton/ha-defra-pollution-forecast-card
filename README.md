@@ -12,6 +12,7 @@ It uses data from DEFRA's UK air pollution RSS feed which is available for over 
   * [Find your local measuring station](#find-your-local-measuring-station)
   * [Filter the RSS feed](#filter-the-rss-feed)
   * [Install feedparser](#install-feedparser)
+  * [Create a sensor](#create-a-sensor)
   * [Install the mushroom card](#install-the-mushroom-card)
   * [Install card-mod](#install-card-mod)
   * [Card](#card)
@@ -41,6 +42,24 @@ It uses data from DEFRA's UK air pollution RSS feed which is available for over 
 ## Install feedparser
 
 Install [feedparser](https://github.com/custom-components/feedparser) into Home Assistant if you don't already have it.
+
+---
+
+## Create a sensor
+
+In your `configuration.yaml` file, add the following sensor substituting in your filtered feed_url.
+
+```yaml
+sensor:
+  - platform: feedparser
+    name: Defra air quality forecast
+    # Used siftrss to filter https://uk-air.defra.gov.uk/assets/rss/forecast.xml
+    # to show only Southwark
+    feed_url: https://siftrss.com/f/P19Z3RPQXLW
+    date_format: '%a, %b %d %I:%M %p'
+    scan_interval:
+      hours: 8
+```
 
 ---
 
@@ -172,7 +191,7 @@ cards:
 ## Credits
 
 Buy cups of coffee for:
-- I based the card on [vd Brink's Kleenex pollen radar card]([https://vdbrink.github.io/homeassistant/homeassistant_hacs_kleenex])
+- I based the card on [vd Brink's Kleenex pollen radar card](https://vdbrink.github.io/homeassistant/homeassistant_hacs_kleenex)
 - [siftrss](https://siftrss.com)
 - [feedparser](https://github.com/custom-components/feedparser)
 - [Mushroom card](https://github.com/piitaya/lovelace-mushroom)
