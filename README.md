@@ -37,7 +37,7 @@ It uses data from DEFRA's UK air pollution RSS feed which is available for over 
 - Click Feed me!
 - Take note of the filtered RSS feed.
 - Click on the filtered URL to check it contains only one entry. (If more than one entry contains your station name, you may need to use the 'matches regex' option in siftrss instead.)
-<img width="961" alt="siftrss" src="https://github.com/user-attachments/assets/4f1a5315-59c5-4a2d-ba63-6c5a944c350a" />
+<img width="600" alt="siftrss" src="https://github.com/user-attachments/assets/4f1a5315-59c5-4a2d-ba63-6c5a944c350a" />
 
 ---
 
