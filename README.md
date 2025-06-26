@@ -22,14 +22,14 @@ It uses data from DEFRA's UK air pollution RSS feed which is available for over 
 
 ## Find your local measuring station
 
-- Enter your post-code on [DEFRA's UK Air Pollution forecast website]([url](https://uk-air.defra.gov.uk/forecasting/)).
+- Enter your post-code on [DEFRA's UK Air Pollution forecast website](https://uk-air.defra.gov.uk/forecasting/).
 - Take note of the name of the nearest station given in the table that appears. (For this example, we're going to use 'Southwark')
 
 ---
 
 ## Filter the RSS feed
 
-[DEFRA's RSS feed]([url](https://uk-air.defra.gov.uk/assets/rss/forecast.xml)) contains over 4000 entries. You only need one.
+[DEFRA's RSS feed](https://uk-air.defra.gov.uk/assets/rss/forecast.xml) contains over 4000 entries. You only need one.
 - Go to https://siftrss.com
 - Enter the DEFRA RSS feed url: https://uk-air.defra.gov.uk/assets/rss/forecast.xml and your station name in capital letters.
 <img width="961" alt="siftrss" src="https://github.com/user-attachments/assets/4f1a5315-59c5-4a2d-ba63-6c5a944c350a" />
@@ -40,13 +40,13 @@ It uses data from DEFRA's UK air pollution RSS feed which is available for over 
 
 ## Install feedparser
 
-Each 
+Install [feedparser](https://github.com/custom-components/feedparser) into Home Assistant if you don't already have it.
 
 ---
 
 ## Install the mushroom card
 
-Each 
+Install the [mushroom card](https://github.com/piitaya/lovelace-mushroom) into Home Assistant if you don't already have it. 
 
 ---
 
@@ -172,6 +172,7 @@ cards:
 ## Credits
 
 Buy cups of coffee for:
-- I based the card on [vd Brink's Kleenex pollen radar card]([url](https://vdbrink.github.io/homeassistant/homeassistant_hacs_kleenex))
-- [siftrss]([url](https://siftrss.com))
-If you have any questions, please raise an issue.
+- I based the card on [vd Brink's Kleenex pollen radar card]([https://vdbrink.github.io/homeassistant/homeassistant_hacs_kleenex])
+- [siftrss](https://siftrss.com)
+- [feedparser](https://github.com/custom-components/feedparser)
+- [Mushroom card](https://github.com/piitaya/lovelace-mushroom)
