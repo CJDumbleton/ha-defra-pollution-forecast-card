@@ -34,10 +34,10 @@ It uses data from DEFRA's UK air pollution RSS feed which is available for over 
 [DEFRA's RSS feed](https://uk-air.defra.gov.uk/assets/rss/forecast.xml) contains over 4000 entries. You only need one.
 - Go to https://siftrss.com
 - Enter the DEFRA RSS feed url: https://uk-air.defra.gov.uk/assets/rss/forecast.xml and your station name in capital letters.
-<img width="961" alt="siftrss" src="https://github.com/user-attachments/assets/4f1a5315-59c5-4a2d-ba63-6c5a944c350a" />
 - Click Feed me!
 - Take note of the filtered RSS feed.
 - Click on the filtered URL to check it contains only one entry. (If more than one entry contains your station name, you may need to use the 'matches regex' option in siftrss instead.)
+<img width="961" alt="siftrss" src="https://github.com/user-attachments/assets/4f1a5315-59c5-4a2d-ba63-6c5a944c350a" />
 
 ---
 
