@@ -487,8 +487,8 @@ columns: 5
 
 ## Credits
 
-Forecast provided by the [Met Office]([url](https://uk-air.defra.gov.uk/assets/rss/))
-Data © Crown 2025 copyright Defra via uk-air.defra.gov.uk, licenced under the [Open Government Licence (OGL)]([url](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/)).
+- Forecast data: © Crown 2025 copyright Defra via uk-air.defra.gov.uk, licenced under the [Open Government Licence (OGL)](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/).
+- Forecast provided by the [Met Office](https://uk-air.defra.gov.uk/assets/rss/)
 
 Buy coffees for:
 - I based the card on [vd Brink's Kleenex pollen radar card](https://vdbrink.github.io/homeassistant/homeassistant_hacs_kleenex)
